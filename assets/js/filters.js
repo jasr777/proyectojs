@@ -11,3 +11,38 @@ function buscar(nombreHotel) {
   console.log(resultadoBusqueda);
   return resultadoBusqueda;
 }
+
+// Ordenar por mejor valorados
+/*  Formato comentarios y valoracion :
+    hotel = { comentarios : "13,896 comentarios";
+              valoracion : "7.0 Bien"
+
+    }
+*/
+
+function mejorValorados() {
+  console.log('mejor valorados');
+  hotelesFront = _.flatten(hotelesFront);
+  hotelesFront = _.chunk(hotelesFront.sort((a, b) => a.valoracionBack - b.valoracionBack).reverse(), 15);
+  console.log(hotelesFront);
+}
+
+// Ordenar por numero de comentarios
+
+function ordenarPorComentarios() {
+  console.log('por numero de comentarios');
+  hotelesFront = _.flatten(hotelesFront);
+  hotelesFront = _.chunk(hotelesFront.sort((a, b) => a.comentariosBack - b.comentariosBack).reverse(), 15);
+  console.log(hotelesFront);
+}
+
+// Ordenar Por los 10 mejores
+
+function topTen() {
+  console.log('Los 10 mejores');
+  $('#valoraciones').html('');
+  mejorValorados();
+  hotelesFront = _.flatten(hotelesFront);
+  hotelesFront = _.chunk(hotelesFront.slice(0, 10), 15);
+  console.log(hotelesFront);
+}

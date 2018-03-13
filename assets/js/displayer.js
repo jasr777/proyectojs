@@ -1,5 +1,5 @@
 // Manejador de elementos del DOM
-
+// [TODO] Mover los eventos a otro archivo
 cargarDatos().then(() => {
   dibujarHoteles(hotelesFront, 0);
   dibujarPaginacion(hotelesFront.length, hotelesFront);
@@ -8,11 +8,12 @@ cargarDatos().then(() => {
 
 
 function dibujarHoteles(hoteles, pagina, event) {
+  console.log('Dibujar hoteles ');
+  console.log(hoteles);
+  console.log(pagina);
   if (event) {
     $('#hoteles').html('');
     event.preventDefault();
-    /*     indiceActual = pagina;
- */
   }
   const hotelesADibujar = hotelesFront[pagina];
   for (let i = 0; i < hotelesADibujar.length; i++) {
@@ -81,3 +82,35 @@ function dibujarResultadosEncontrados() {
   $('#resultados').html('');
   $('#resultados').append(`<p>Se encontraron ${_.flatten(hotelesFront).length} resultados</p>`);
 }
+
+$('#valoraciones').click(() => {
+  console.log('VALORACIONES');
+  if ($('#valoraciones').prop('checked')) {
+    $('#hoteles').html('');
+    mejorValorados();
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
+  } else {
+    hotelesFront = hoteles.slice(0);
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
+  }
+});
+
+$('#comentarios').click(() => {
+  console.log('comentarios');
+  if ($('#comentarios').prop('checked')) {
+    $('#hoteles').html('');
+    ordenarPorComentarios();
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
+  } else {
+    hotelesFront = hoteles.slice(0);
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
+  }
+});

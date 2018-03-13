@@ -40,14 +40,18 @@ function limpiarDatos(datos) {
 
     if (dato.hasOwnProperty('Reviews Core 4') && dato.hasOwnProperty('Reviews Core 2')) {
       hotelFormateado.valoracion = `${dato['Reviews Core 4'].text} ${dato['Reviews Core 2'].text}`;
+      hotelFormateado.valoracionBack = parseFloat(dato['Reviews Core 4'].text);
     } else {
       hotelFormateado.valoracion = 'No hay valoraciones disponibles';
+      hotelFormateado.valoracionBack = -1; // Valor para identificar los que no tienen valoracion
     }
 
     if (dato.hasOwnProperty('Reviews Core 3')) {
       hotelFormateado.comentarios = dato['Reviews Core 3'].text;
+      hotelFormateado.comentariosBack = parseFloat(dato['Reviews Core 3'].text.substring(0, dato['Reviews Core 3'].text.indexOf(' ')).replace(',', ''));
     } else {
       hotelFormateado.comentarios = 'No hay comentarios';
+      hotelFormateado.comentariosBack = -1;
     }
     hotelesLimpios.push(hotelFormateado);
     hotelFormateado = {};
