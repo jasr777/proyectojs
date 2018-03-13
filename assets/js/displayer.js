@@ -3,6 +3,7 @@
 cargarDatos().then(() => {
   dibujarHoteles(hotelesFront, 0);
   dibujarPaginacion(hotelesFront.length, hotelesFront);
+  dibujarResultadosEncontrados();
 });
 
 
@@ -62,6 +63,7 @@ $('#buscar').click((event) => {
   console.log('resultado');
   console.log(hotelesFront);
   dibujarResultadoBusquedas(hotelesFront);
+  dibujarResultadosEncontrados();
 });
 
 $('#valorBusqueda').change(() => {
@@ -71,5 +73,11 @@ $('#valorBusqueda').change(() => {
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
     dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
   }
 });
+
+function dibujarResultadosEncontrados() {
+  $('#resultados').html('');
+  $('#resultados').append(`<p>Se encontraron ${_.flatten(hotelesFront).length} resultados</p>`);
+}

@@ -16,6 +16,28 @@
     <div class="row">
         <sidebar class="col-md-4 bg-info">
             Menu
+            <div class="checkbox">
+                <input id="valoraciones" type="checkbox">
+                <label for="checkbox1">
+                    Ordenar por mejor valorados
+                </label>
+            </div>
+            <div class="checkbox">
+                <input id="comentarios" type="checkbox">
+                <label for="checkbox1">
+                    Ordenar por número de comentarios
+                </label>
+            </div>
+            <div class="radiobutton">
+                <input id="topten" type="radio">
+                <label for="checkbox1">
+                    Ordenar por mejor valorados
+                </label>
+            </div>
+
+
+
+
         </sidebar>
         <div class="col-md-8">
                 <nav class="navbar navbar-light bg-light justify-content-between">
@@ -25,6 +47,9 @@
                           <button class="btn btn-outline-success my-2 my-sm-0" id="buscar">Buscar</button>
                         </form>
                 </nav>
+                <div id="resultados">
+
+                </div>
                     <div class="bg-light container">
                         <div id="hoteles" class="row"></div>
                         </div>
@@ -37,17 +62,6 @@
         <ul id="paginacion" class="pagination col-md-8"></ul>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-    <script>
-    </script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>    <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -60,5 +74,5 @@
     <script src="assets/js/loader.js"></script>
     <script src="assets/js/filters.js"></script>
     <script src="assets/js/displayer.js"></script>
-
+</body>
 </html>

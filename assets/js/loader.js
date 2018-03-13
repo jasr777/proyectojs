@@ -1,6 +1,6 @@
 // Operaciones de carga de los datos
 
-const hoteles;
+let hoteles;
 let hotelesFront;
 
 
@@ -10,6 +10,7 @@ function cargarDatos() {
     .then((apartamentos) => {
       hoteles = limpiarDatos(apartamentos);
       hotelesFront = limpiarDatos(apartamentos);
+      quitarRepetidos();
       console.log('Apartamentos recibidos : ');
       console.log(hoteles);
       return hoteles;
@@ -63,4 +64,11 @@ function limpiarNombreHotel(nombre) {
 
 function limpiarDireccionHotel(direccion) {
   return direccion.replace('- Mostrar en el mapa', '');
+}
+
+function quitarRepetidos() {
+  console.log(hotelesFront);
+  hoteles = _.chunk(_.uniqBy(_.flatten(hotelesFront), hotel => hotel.nombreHotel), 15);
+  hotelesFront = _.chunk(_.uniqBy(_.flatten(hotelesFront), hotel => hotel.nombreHotel), 15);
+  console.log(hotelesFront);
 }
