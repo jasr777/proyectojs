@@ -1,20 +1,19 @@
 // Manejador de elementos del DOM
 
-/* let indiceActual = 0;
- */
 cargarDatos().then(() => {
-  dibujarHoteles(hoteles,0);
-  dibujarPaginacion(hoteles.length,hoteles);
+  dibujarHoteles(hotelesFront, 0);
+  dibujarPaginacion(hotelesFront.length, hotelesFront);
 });
 
-function dibujarHoteles(hoteles,pagina, event) {
+
+function dibujarHoteles(hoteles, pagina, event) {
   if (event) {
     $('#hoteles').html('');
     event.preventDefault();
-/*     indiceActual = pagina;
- */    
+    /*     indiceActual = pagina;
+ */
   }
-  const hotelesADibujar = hoteles[pagina];
+  const hotelesADibujar = hotelesFront[pagina];
   for (let i = 0; i < hotelesADibujar.length; i++) {
     dibujarHotel(hotelesADibujar[i]);
   }
@@ -36,12 +35,41 @@ function dibujarHotel(hotel) {
     `);
 }
 // [TODO]  : Pagina siguiente / anterior
-function dibujarPaginacion(elementos,hoteles) {
+function dibujarPaginacion(elementos, hoteles) {
 /*   $('#paginacion').append('<li class="page-item"><a onclick="dibujarHoteles(hoteles,class="page-link" href="#">Previous</a></li>'); */
 
-  for (let i = 0; i <= elementos; i++) {
-    $('#paginacion').append(`<li  class="page-item"><a onclick="dibujarHoteles(hoteles,${i},event)" class="page-link" href="#">${i}</a></li>`);
+  for (let i = 0; i < elementos; i++) {
+    $('#paginacion').append(`<li  class="page-item"><a onclick="dibujarHoteles(hotelesFront,${i},event)" class="page-link" href="#">${i}</a></li>`);
   }
   /* $('#paginacion').append('<li class="page-item"><a class="page-link" href="#">Next</a></li></ul>'); */
 }
 
+function dibujarResultadoBusquedas(resultadoBusqueda) {
+  console.log('dibujando...');
+  $('#hoteles').html('');
+  dibujarHoteles(resultadoBusqueda, 0, '');
+  $('#paginacion').html('');
+  dibujarPaginacion(resultadoBusqueda.length, resultadoBusqueda);
+}
+
+$('#buscar').click((event) => {
+  event.preventDefault();
+  console.log('evento buscar');
+  console.log('se busca');
+  console.log($('#valorBusqueda').val());
+  hotelesFront = buscar($('#valorBusqueda').val());
+
+  console.log('resultado');
+  console.log(hotelesFront);
+  dibujarResultadoBusquedas(hotelesFront);
+});
+
+$('#valorBusqueda').change(() => {
+  if ($('#valorBusqueda').val().length == 0) {
+    $('#hoteles').html('');
+    $('#paginacion').html('');
+    hotelesFront = hoteles.slice(0);
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+  }
+});

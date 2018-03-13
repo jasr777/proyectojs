@@ -2,5 +2,9 @@
     "extends": "airbnb-base",
     "env": {
         "jquery" : true
+    },
+    "rules" : {
+        "linebreak-style" : 0
     }
+
 }

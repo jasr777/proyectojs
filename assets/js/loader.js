@@ -1,6 +1,7 @@
 // Operaciones de carga de los datos
 
-let hoteles;
+const hoteles;
+let hotelesFront;
 
 
 function cargarDatos() {
@@ -8,6 +9,7 @@ function cargarDatos() {
     .then(response => response.json())
     .then((apartamentos) => {
       hoteles = limpiarDatos(apartamentos);
+      hotelesFront = limpiarDatos(apartamentos);
       console.log('Apartamentos recibidos : ');
       console.log(hoteles);
       return hoteles;
