@@ -1,5 +1,5 @@
 // Filtros del contenido
-
+// [TODO] : Filtros en los resultados de busqueda
 // Búsqueda
 function buscar(nombreHotel) {
   console.log('Funcion buscar');
