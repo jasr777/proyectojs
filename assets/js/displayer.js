@@ -1,7 +1,7 @@
 // Manejador de elementos del DOM
 
-
-
+/* let indiceActual = 0;
+ */
 cargarDatos().then(() => {
   dibujarHoteles(hoteles,0);
   dibujarPaginacion(hoteles.length,hoteles);
@@ -11,6 +11,8 @@ function dibujarHoteles(hoteles,pagina, event) {
   if (event) {
     $('#hoteles').html('');
     event.preventDefault();
+/*     indiceActual = pagina;
+ */    
   }
   const hotelesADibujar = hoteles[pagina];
   for (let i = 0; i < hotelesADibujar.length; i++) {
@@ -33,11 +35,13 @@ function dibujarHotel(hotel) {
     </div>
     `);
 }
-
+// [TODO]  : Pagina siguiente / anterior
 function dibujarPaginacion(elementos,hoteles) {
 /*   $('#paginacion').append('<li class="page-item"><a onclick="dibujarHoteles(hoteles,class="page-link" href="#">Previous</a></li>'); */
+
   for (let i = 0; i <= elementos; i++) {
     $('#paginacion').append(`<li  class="page-item"><a onclick="dibujarHoteles(hoteles,${i},event)" class="page-link" href="#">${i}</a></li>`);
-  }/* $('#paginacion').append('<li class="page-item"><a class="page-link" href="#">Next</a></li></ul>'); */
+  }
+  /* $('#paginacion').append('<li class="page-item"><a class="page-link" href="#">Next</a></li></ul>'); */
 }
 
