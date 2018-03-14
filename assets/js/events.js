@@ -1,10 +1,11 @@
+
 $(document).ready(() => {
   $('#valorBusqueda').val('');
   /*   $('#valoraciones').prop('checked', false);
   $('#comentarios').prop('checked', false);
   $('#topten').prop('checked', false);
   $('#favoritos').prop('checked', false); */
-  let searchFlag = false;
+
 
   if (localStorage.getItem('formulario') != null) {
     cargarFormulario();
