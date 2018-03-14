@@ -46,5 +46,6 @@ function topTen() {
 function obtenerRangoValoracion(notaMin, notaMax) {
   hotelesFront = _.flatten(hotelesFront);
   hotelesFront = hotelesFront.filter(hotel => hotel.valoracionBack >= notaMin && hotel.valoracionBack <= notaMax);
-  hotelesFront = _.chunk(hotelesFront.sort((a, b) => a.comentariosBack - b.comentariosBack).reverse(), 15);
+  hotelesFront = _.chunk(hotelesFront.sort((a, b) => a.valoracionBack - b.valoracionBack).reverse(), 15);
+  console.log(hotelesFront);
 }

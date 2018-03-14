@@ -147,3 +147,15 @@ $('#favoritos').click(() => {
     dibujarResultadosEncontrados();
   }
 });
+/*  --- Pendiente de implementar
+$('#valoracionmin').change(() => {
+  obtenerRangoValoracion($('#valoracionmin').val(), $('#valoracionmax').val())
+  dibujarHoteles(hotelesFront,0,'');
+  dibujarResultadosEncontrados();
+
+});
+
+$('#valoracionmax').change(() => {
+  dibujarHoteles(hotelesFront, 0, '');
+  dibujarResultadosEncontrados();
+}); */
