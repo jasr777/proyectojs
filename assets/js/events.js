@@ -43,6 +43,7 @@ $('#valoraciones').click(() => {
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    $('#hoteles').html('');
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
     console.log('hoteles length');
@@ -68,6 +69,7 @@ $('#comentarios').click(() => {
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    $('#hoteles').html('');
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
     console.log('hoteles length');
@@ -90,6 +92,7 @@ $('#topten').click(() => {
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    $('#hoteles').html('');
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
     console.log('hoteles length');

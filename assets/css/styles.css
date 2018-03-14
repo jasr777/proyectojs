@@ -1,0 +1,18 @@
+body {
+    font-family: 'Roboto Slab', serif;}
+img {
+    padding-top:25px;
+    padding-left :15px;
+}
+
+p {
+    font-size :14px;
+}
+
+h4 {
+    padding-top:5px;
+}
+
+.card-text {
+    padding-bottom:10px;
+}

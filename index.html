@@ -6,17 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="bg-light">
 
 <div class="container">
     <div class="row">
+        
         <sidebar class="col-md-4 bg-info">
-            Menu
-            <div class="checkbox">
+            <h2>Menu</h2>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Ordenar por mejor valorados
+                    <input id="valoraciones" class=" badge-primary badge-pill" type="checkbox">
+
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Ordenar por numero de comentarios
+                    <input id="comentarios" class=" badge-primary badge-pill" type="checkbox">
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Ver los 10 mejores hoteles
+                    <input id="topten" class=" badge-primary badge-pill" type="checkbox">
+                </li>
+            </ul>
+<!--             <div class="checkbox">
                 <input id="valoraciones" type="checkbox">
                 <label for="checkbox1">
                     Ordenar por mejor valorados
@@ -34,7 +52,9 @@
                     Los 10 Mejor Valorados
                 </label>
             </div>
-        </sidebar>
+ -->        </sidebar>
+
+
         <div class="col-md-8">
                 <nav class="navbar navbar-light bg-light justify-content-between">
                         <a class="navbar-brand">Búsqueda</a>
