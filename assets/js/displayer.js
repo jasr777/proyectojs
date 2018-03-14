@@ -1,5 +1,4 @@
 // Manejador de elementos del DOM
-// [TODO] Mover los eventos a otro archivo
 
 cargarDatos().then(() => {
   dibujarHoteles(hotelesFront, 0);
@@ -25,19 +24,19 @@ function dibujarHoteles(hoteles, pagina, event) {
 function dibujarHotel(hotel) {
   $('#hoteles').append(`
     <div class="container py-3">
-    <div class="card">
-      <div class="row ">
-        <div class="col-md-4">
-            <img src="${hotel.imagen}" class="rounded float-left center-block">
+      <div class="card">
+        <div class="row ">
+          <div class="col-md-4">
+              <img src="${hotel.imagen}" class="rounded">
           </div>
           <div class="col-md-8 px-3">
-            <div class="card-block px-3">
-              
+            <div class="card-block px-3">              
               <h4 class="card-title">${hotel.nombreHotel}</h4>
               <h6  class="card-subtitle mb-2 text-muted">${hotel.direccionHotel}</h6>
               <p   class="card-text">${hotel.descripcionHotel}</p>
               <p   class="card-text">${hotel.valoracion}</p>
               <p   class="card-text">${hotel.comentarios}</p>
+              <button onclick="guardarFavorito('${hotel.nombreHotel}',this)" type="button" class="fav-btn btn btn-primary float-right">Añadir a Favoritos</button>
             </div>
           </div>
         </div>
@@ -47,19 +46,6 @@ function dibujarHotel(hotel) {
 
       `);
 }
-
-/*     <div class="card col-md-4" style="width: 18rem;">
-          <div class="card-body">
-              <img class="card-img-top" src="${hotel.imagen}" alt="Imagen del Hotel">
-              <h5  class="card-title">${hotel.nombreHotel}</h5>
-              <h6  class="card-subtitle mb-2 text-muted">${hotel.direccionHotel}</h6>
-              <p   class="card-text">${hotel.descripcionHotel}</p>
-              <p   class="card-text">${hotel.valoracion}</p>
-              <p   class="card-text">${hotel.comentarios}</p>
-          </div>
-      </div>
-      </div>
-   */
 // [TODO]  : Pagina siguiente / anterior
 function dibujarPaginacion(elementos, hoteles) {
   console.log('Elementos vale : ');

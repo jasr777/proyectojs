@@ -26,7 +26,6 @@ function cargarDatos() {
         direccionHotel => Address Link.text => En algunos hay que limpiar => "- Mostrar en el mapa"
         descripcionHotel => Hotel Description.text => no hay que limpiar
 */
-
 function limpiarDatos(datos) {
   const hotelesLimpios = [];
   let hotelFormateado = {};

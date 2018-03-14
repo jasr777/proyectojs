@@ -1,21 +1,29 @@
 $(document).ready(() => {
   $('#valorBusqueda').val('');
-  $('#valoraciones').prop('checked', false);
+  /*   $('#valoraciones').prop('checked', false);
   $('#comentarios').prop('checked', false);
   $('#topten').prop('checked', false);
+  $('#favoritos').prop('checked', false); */
+  let searchFlag = false;
+
+  if (localStorage.getItem('formulario') != null) {
+    cargarFormulario();
+  }
+
+  if (localStorage.getItem('favoritos') != null) {
+    cargarFavoritos();
+  }
 });
 
 $('#buscar').click((event) => {
   event.preventDefault();
-  console.log('evento buscar');
-  console.log('se busca');
-  console.log($('#valorBusqueda').val());
-  hotelesFront = buscar($('#valorBusqueda').val());
-
-  console.log('resultado');
-  console.log(hotelesFront);
+  searchFlag = true;
+  // hotelesFront = buscar($('#valorBusqueda').val());
+  buscar($('#valorBusqueda').val());
   dibujarResultadoBusquedas(hotelesFront);
   dibujarResultadosEncontrados();
+  console.log('Los resultados de la busqueda son ');
+  console.log(hotelesFront);
 });
 
 $('#valorBusqueda').change(() => {
@@ -28,39 +36,38 @@ $('#valorBusqueda').change(() => {
   }
 });
 $('#valoraciones').click(() => {
-  hotelesFront = hoteles.slice(0);
-
-  console.log('VALORACIONES');
+  if (!searchFlag) {
+    hotelesFront = hoteles.slice(0);
+  }
   if ($('#valoraciones').prop('checked')) {
     $('#comentarios').prop('checked', false);
     $('#topten').prop('checked', false);
-
+    $('#favoritos').prop('checked', false);
     $('#hoteles').html('');
     mejorValorados();
     dibujarHoteles(hotelesFront, 0, '');
-    console.log('hoteles length');
-    console.log(hotelesFront.length);
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    searchFlag = false;
     $('#hoteles').html('');
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
-    console.log('hoteles length');
-    console.log(hotelesFront.length);
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   }
 });
 
 $('#comentarios').click(() => {
-  hotelesFront = hoteles.slice(0);
+  if (!searchFlag) {
+    hotelesFront = hoteles.slice(0);
+  }
 
-  console.log('comentarios');
+  // hotelesFront = hoteles.slice(0);
   if ($('#comentarios').prop('checked')) {
     $('#valoraciones').prop('checked', false);
     $('#topten').prop('checked', false);
-
+    $('#favoritos').prop('checked', false);
     $('#hoteles').html('');
     ordenarPorComentarios();
     dibujarHoteles(hotelesFront, 0, '');
@@ -69,6 +76,7 @@ $('#comentarios').click(() => {
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    searchFlag = false;
     $('#hoteles').html('');
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
@@ -80,19 +88,56 @@ $('#comentarios').click(() => {
 });
 
 $('#topten').click(() => {
+  if (!searchFlag) {
+    hotelesFront = hoteles.slice(0);
+  }
+
   console.log('topten');
   if ($('#topten').prop('checked')) {
     $('#valoraciones').prop('checked', false);
     $('#comentarios').prop('checked', false);
+    $('#favoritos').prop('checked', false);
     $('#hoteles').html('');
     topTen();
-    console.log('hoteles length');
-    console.log(hotelesFront.length);
     dibujarHoteles(hotelesFront, 0, '');
     dibujarPaginacion(hotelesFront.length, hotelesFront);
     dibujarResultadosEncontrados();
   } else {
+    searchFlag = false;
     $('#hoteles').html('');
+    hotelesFront = hoteles.slice(0);
+    dibujarHoteles(hotelesFront, 0, '');
+    dibujarPaginacion(hotelesFront.length, hotelesFront);
+    dibujarResultadosEncontrados();
+  }
+});
+
+
+// Extras :
+
+$('#favoritos').click(() => {
+  searchFlag = false;
+  if ($('#favoritos').prop('checked')) {
+    if (localStorage.getItem('favoritos') != null) {
+      $('#valoraciones').prop('checked', false);
+      $('#topten').prop('checked', false);
+      $('#hoteles').html('');
+      console.log(hotelesFront);
+      cargarFavoritos();
+      dibujarHoteles(hotelesFront, 0, '');
+      dibujarPaginacion(hotelesFront.length, hotelesFront);
+      dibujarResultadosEncontrados();
+      $('button').remove('.fav-btn');
+    } else {
+      $('#resultados').html('');
+      $('#hoteles').html('');
+      $('#paginacion').html('');
+      $('#hoteles').append('<h2 class="center-block">No se han registrado hoteles favoritos </h2>');
+    }
+  } else {
+    $('#hoteles').html('');
+    searchFlag = false;
+
     hotelesFront = hoteles.slice(0);
     dibujarHoteles(hotelesFront, 0, '');
     console.log('hoteles length');

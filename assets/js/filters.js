@@ -4,21 +4,15 @@
 function buscar(nombreHotel) {
   console.log('Funcion buscar');
   console.log(`Se busca : ${nombreHotel}`);
-
   const hotelesEnVector = _.flatten(hoteles);
   const resultadoBusqueda = _.chunk(hotelesEnVector.filter(hotel => hotel.nombreHotel.toLowerCase().includes(nombreHotel.toLowerCase())), 15);
   console.log('Resultado de la busqueda : ');
   console.log(resultadoBusqueda);
-  return resultadoBusqueda;
+  hotelesFront = resultadoBusqueda.slice(0);
+  // return resultadoBusqueda;
 }
 
 // Ordenar por mejor valorados
-/*  Formato comentarios y valoracion :
-    hotel = { comentarios : "13,896 comentarios";
-              valoracion : "7.0 Bien"
-
-    }
-*/
 
 function mejorValorados() {
   console.log('mejor valorados');
@@ -45,4 +39,12 @@ function topTen() {
   hotelesFront = _.flatten(hotelesFront);
   hotelesFront = _.chunk(hotelesFront.slice(0, 10), 15);
   console.log(hotelesFront);
+}
+
+// Obtener rango valoracion
+
+function obtenerRangoValoracion(notaMin, notaMax) {
+  hotelesFront = _.flatten(hotelesFront);
+  hotelesFront = hotelesFront.filter(hotel => hotel.valoracionBack >= notaMin && hotel.valoracionBack <= notaMax);
+  hotelesFront = _.chunk(hotelesFront.sort((a, b) => a.comentariosBack - b.comentariosBack).reverse(), 15);
 }
