@@ -1,5 +1,6 @@
 // Manejador de elementos del DOM
 // [TODO] Mover los eventos a otro archivo
+
 cargarDatos().then(() => {
   dibujarHoteles(hotelesFront, 0);
   dibujarPaginacion(hotelesFront.length, hotelesFront);
