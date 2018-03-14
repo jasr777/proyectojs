@@ -2,7 +2,7 @@
 
 let hoteles;
 let hotelesFront;
-
+let searchFlag = false;
 
 function cargarDatos() {
   return fetch('/data/london.json')

@@ -10,12 +10,12 @@ Estos apartamentos tienen una serie de atributos con los que podrás representar
 
 Se pide : 
 
-    - [ ] Realiza una intefaz similar a la de trivago. Tira de bootstrap todo lo que puedas.
-    - [ ] Aparecerá un listado de 15 en 15 apartamentos (Trocéalo en diferentes páginas y coloca paginación abajo del todo).
-    - [ ] Coloca una searchbar para poder buscar por nombre del apartamento. Al colocar algo en la searchbar y darle a buscar se filtrarán los resultados respetando el orden y el resto de filtros si los hubiese.
-    - [ ] El usuario ha de poder ordenar el listado por "Mejor valorados" manteniendo el resto de filtros. 
-    - [ ] El usuario ha de poder ordenar el listado por "Mayor número de comentarios" manteniendo el resto de filtros.
-    - [ ] Existe una opción para ver el Top 10. Esto desmarcaría cualquier otro filtro y mostraría en el listado solo los 10 más valorados.Z
+    - [x] Realiza una intefaz similar a la de trivago. Tira de bootstrap todo lo que puedas.
+    - [x] Aparecerá un listado de 15 en 15 apartamentos (Trocéalo en diferentes páginas y coloca paginación abajo del todo).
+    - [x] Coloca una searchbar para poder buscar por nombre del apartamento. Al colocar algo en la searchbar y darle a buscar se filtrarán los resultados respetando el orden y el resto de filtros si los hubiese.
+    - [x] El usuario ha de poder ordenar el listado por "Mejor valorados" manteniendo el resto de filtros. 
+    - [x] El usuario ha de poder ordenar el listado por "Mayor número de comentarios" manteniendo el resto de filtros.
+    - [x] Existe una opción para ver el Top 10. Esto desmarcaría cualquier otro filtro y mostraría en el listado solo los 10 más valorados.Z
 
 ## Reglas
 
@@ -31,8 +31,8 @@ Estas son las reglas :
 
 Como opcionales : 
 
-    - [ ] Simula mediante promesas y setTimeout que existe una petición a un servidor al ir a recoger los datos cuando se cambia de página.
+    - [X] Simula mediante promesas y setTimeout que existe una petición a un servidor al ir a recoger los datos cuando se cambia de página.
     - [ ] Tu estilo cumple con las reglas de ESLint. 
-    - [ ] Añade filtros para solo ver apartamentos con más de X valoración de media como en trivago.
-    - [ ] Permite al usuario marcar como favorito un apartamento y guarda dicha información en localStorage.
-    - [ ] Guarda el estado de los filtros y searchbar en localStorage para que al recargar la página se recuperen dichos datos.
+    - [] Añade filtros para solo ver apartamentos con más de X valoración de media como en trivago.
+    - [x] Permite al usuario marcar como favorito un apartamento y guarda dicha información en localStorage.
+    - [x] Guarda el estado de los filtros y searchbar en localStorage para que al recargar la página se recuperen dichos datos.
